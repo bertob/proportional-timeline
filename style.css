@@ -89,6 +89,9 @@ button:active {
 .progress .bar.active {
   background-color: #2396ff;
 }
+.scrubber-container {
+  height: 4em;
+}
 .scrubber {
   display: block;
   width: 4em;
@@ -99,5 +102,5 @@ button:active {
   background-image: url(img/pause.svg);
   background-position: center center;
   background-repeat: no-repeat;
-  transition: all 0.03s ease-out;
+  transition: all 0.07s ease-out;
 }
