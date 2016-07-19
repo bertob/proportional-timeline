@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Robotino</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <section class="container" id="container">
+
+      <div class="episode">
+        <div class="adjacent">
+          <img class="art" src="img/99pi.jpg">
+          <div class="info">
+            <h4>220 - The Mind of an Architect</h4>
+            <small>38min</small>
+          </div>
+        </div>
+        <div class="progress">
+          <div class="bar-row" id="bar-1">
+            <div class="bar"></div>
+            <div class="active bar"></div>
+          </div>
+          <div class="bar-row" id="bar-2">
+            <div class="bar"></div>
+            <div class="active bar"></div>
+          </div>
+          <div class="bar-row" id="bar-3">
+            <div class="bar"></div>
+            <div class="active bar"></div>
+          </div>
+          <div class="bar-row" id="bar-4">
+            <div class="bar" style="width: 90%"></div>
+            <div class="active bar" style="width: 40%"></div>
+          </div>
+        </div>
+        <div class="bar-row">
+        <button class="button scrubber" id="scrubber"></button>
+      </div>
+
+    </section>
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/jquery.event.move.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
