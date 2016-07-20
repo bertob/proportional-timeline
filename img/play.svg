@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="5.6444864mm"
-   height="7.6200008mm"
-   viewBox="0 0 20.000149 27.000003"
+   width="6.7733359mm"
+   height="6.4911127mm"
+   viewBox="0 0 24.00001 23.000006"
    id="svg13184"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="pause.svg">
+   sodipodi:docname="play.svg">
   <defs
      id="defs13186" />
   <sodipodi:namedview
@@ -26,10 +26,10 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="15.839192"
-     inkscape:cx="-14.289886"
-     inkscape:cy="14.804917"
+     inkscape:cx="-13.584061"
+     inkscape:cy="16.455172"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1-6"
+     inkscape:current-layer="layer1"
      showgrid="true"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -52,8 +52,8 @@
     <inkscape:grid
        type="xygrid"
        id="grid4144"
-       originx="2.7500001e-06"
-       originy="8.3662504e-06" />
+       originx="3.9999911"
+       originy="-1.9999996" />
   </sodipodi:namedview>
   <metadata
      id="metadata13189">
@@ -63,7 +63,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -71,30 +71,16 @@
      inkscape:label="Tavolo 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-327.14278,-247.26707)">
+     transform="translate(-323.14279,-249.26706)">
     <g
-       style="fill:#1b1b1b;fill-opacity:1"
-       id="g5797"
-       transform="matrix(0.66667165,0,0,0.67500006,-1582.8715,-193.07744)">
-      <rect
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;enable-background:accumulate"
-         id="rect5799"
-         width="10"
-         height="40"
-         x="2085"
-         y="560"
-         transform="translate(780,92.362183)" />
-      <rect
-         y="652.36218"
-         x="2885"
-         height="40"
-         width="10"
-         id="rect5801"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;enable-background:accumulate" />
-    </g>
-    <g
-       transform="matrix(0.99999963,0,0,1.0222169,-232.07123,-257.30365)"
+       transform="matrix(1.1249979,0,0,1.2374208,-304.47202,-366.37138)"
        id="layer1-6"
-       inkscape:label="Tavolo 1" />
+       inkscape:label="Tavolo 1">
+      <path
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3.46409106px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 563.21422,497.51744 0,18.58703 16.00001,-9.29352 z"
+         id="path5146"
+         inkscape:connector-curvature="0" />
+    </g>
   </g>
 </svg>

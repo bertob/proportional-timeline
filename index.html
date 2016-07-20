@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Robotino</title>
+    <title>Podcast</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -11,33 +11,18 @@
 
       <div class="episode">
         <div class="adjacent">
-          <img class="art" src="img/99pi.jpg">
+          <img class="art" src="img/roderick.jpg">
           <div class="info">
-            <h4>220 - The Mind of an Architect</h4>
+            <h4>Ep. 146: "Science Farmer"</h4>
             <small>78min</small>
           </div>
         </div>
-        <div class="progress">
-          <div class="bar-row" id="bar-1">
-            <div class="bar"></div>
-            <div class="active bar"></div>
-          </div>
-          <div class="bar-row" id="bar-2">
-            <div class="bar"></div>
-            <div class="active bar"></div>
-          </div>
-          <div class="bar-row" id="bar-3">
-            <div class="bar"></div>
-            <div class="active bar"></div>
-          </div>
-          <div class="bar-row" id="bar-4">
-            <div class="bar" style="width: 90%"></div>
-            <div class="active bar" style="width: 40%"></div>
-          </div>
+        <div class="progress" id="progress">
         </div>
         <div class="scrubber-container" id="scrubber-container">
-          <button class="button scrubber" id="scrubber"></button>
+          <button class="button scrubber play" id="scrubber"></button>
         </div>
+        <audio src="audio/rotl_0146.mp3" id="audio">
       </div>
 
     </section>

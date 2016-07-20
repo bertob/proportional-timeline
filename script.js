@@ -1,55 +1,91 @@
-var MINS_PER_ROW = 20;
+var SECS_PER_ROW = 20 * 60;
 
 var moved = false;
 var movedDistance = 0;
+var bars, progress, length, maxPercentage;
+var playing = false;
 
-// in minutes
-var progress = 45;
-var length = 78;
+var aud = document.getElementById("audio");
+var scr = document.getElementById("scrubber");
 
-updateProgressbar(length, progress);
-update();
+aud.addEventListener("loadeddata", function() {
+  // in seconds
+  progress = 0;
+  length = this.duration;
+
+  bars = Math.ceil(length / SECS_PER_ROW);
+  maxPercentage = (length % SECS_PER_ROW) * 100 / SECS_PER_ROW;
+
+  for (var i=1; i<=bars; i++) {
+    var last = (i===bars)?('style="width: ' + Math.round(maxPercentage) + '%"'):'';
+    $('<div class="bar-row" id="bar-' + i + '"><div class="bar" ' + last + '></div><div class="active bar" ' + last + '></div></div="progress">').appendTo("#progress");
+  }
+
+  updateProgressbar(length, progress);
+  update();
+});
+aud.addEventListener("timeupdate", function() {
+  playChangeProgress();
+});
 
 function update() {
-  if (moved)
-    changeProgress();
+  if (moved) scrubChangeProgress();
   setTimeout(function() {
     update();
-  }, 20);
+  }, 10);
 }
 
-var $draggable = $('#scrubber').draggabilly({
+var $draggable = $(scr).draggabilly({
   axis: "x",
   containment: "#scrubber-container"
 });
-
 $draggable.on("dragStart", function(event, pointer) {
   moved = true;
+  if (!aud.paused) playing = true;
+  aud.pause();
 });
 $draggable.on("dragMove", function(event, pointer, moveVector) {
   movedDistance = moveVector.x;
 });
 $draggable.on("dragEnd", function(event, pointer) {
-  changeProgress(0);
   moved = false;
+  movedDistance = 0;
   $draggable.css("left", "0");
+  if (playing) aud.play();
+  aud.currentTime = progress;
+});
+$draggable.on("staticClick", function(event, pointer) {
+  if (playing) {
+    aud.pause();
+    playing = false;
+    $(scr).addClass("play");
+  }
+  else {
+    aud.play();
+    playing = true;
+    $(scr).removeClass("play");
+  }
 });
 
-function changeProgress() {
-  newProgress = progress + (Math.pow(10, Math.abs(movedDistance)/150) * sign(movedDistance)) / 90;
+function playChangeProgress() {
+  if (!moved) {
+    progress = aud.currentTime;
+    updateProgressbar(length, progress);
+  }
+}
+function scrubChangeProgress() {
+  newProgress = progress + (Math.pow(40, Math.abs(movedDistance)/150) * sign(movedDistance));
   progress = Math.max(Math.min(newProgress, length), 0);
   updateProgressbar(length, progress);
 }
 function updateProgressbar(length, progress) {
-  var bars = Math.ceil(length / MINS_PER_ROW);
-  var completeBars = Math.floor(progress / MINS_PER_ROW);
-  var maxPercentage = (length % MINS_PER_ROW) * 100 / MINS_PER_ROW;
+  var completeBars = Math.floor(progress / SECS_PER_ROW);
   for (var i=1; i<=bars; i++) {
     if (i <= completeBars) {
       $("#bar-" + i).children(".active").css("width", "100%");
     }
-    else if (progress > (i-1) * MINS_PER_ROW && progress < ((i-1)+1) * MINS_PER_ROW) {
-      barProgress = (progress % MINS_PER_ROW) * 100 / MINS_PER_ROW;
+    else if (progress > (i-1) * SECS_PER_ROW && progress < ((i-1)+1) * SECS_PER_ROW) {
+      barProgress = (progress % SECS_PER_ROW) * 100 / SECS_PER_ROW;
       if (i === bars)
         $("#bar-" + i).children(".active").css("width", Math.min(barProgress, maxPercentage) + "%");
       else
