@@ -8,7 +8,7 @@ var playing = false;
 var aud = document.getElementById("audio");
 var scr = document.getElementById("scrubber");
 
-aud.addEventListener("loadeddata", function() {
+aud.addEventListener("loadedmetadata", function() {
   // in seconds
   progress = 0;
   length = this.duration;
@@ -16,11 +16,13 @@ aud.addEventListener("loadeddata", function() {
   bars = Math.ceil(length / SECS_PER_ROW);
   maxPercentage = (length % SECS_PER_ROW) * 100 / SECS_PER_ROW;
 
+  $(".info small").html(Math.floor(length/3600) + "h " + Math.round(length % 60) +  "min");
+
   for (var i=1; i<=bars; i++) {
     var last = (i===bars)?('style="width: ' + Math.round(maxPercentage) + '%"'):'';
     $('<div class="bar-row" id="bar-' + i + '"><div class="bar" ' + last + '></div><div class="active bar" ' + last + '></div></div="progress">').appendTo("#progress");
   }
-
+  
   updateProgressbar(length, progress);
   update();
 });
@@ -74,7 +76,7 @@ function playChangeProgress() {
   }
 }
 function scrubChangeProgress() {
-  newProgress = progress + (Math.pow(40, Math.abs(movedDistance)/150) * sign(movedDistance));
+  newProgress = progress + sign(movedDistance) * (Math.pow(10, Math.pow(Math.abs(movedDistance)/(250*0.5), 2)))/10;
   progress = Math.max(Math.min(newProgress, length), 0);
   updateProgressbar(length, progress);
 }
