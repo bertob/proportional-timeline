@@ -79,6 +79,13 @@ $("audio").on("loadedmetadata", function() {
     $('<div class="bar-row bar-' + j + '"><div class="bar" ' + last + '></div><div class="active bar" style="width: 0" ' + last + '></div>').appendTo(prog);
   }
 
+  var sep = '<div class="separator-container" style="height: ' + bars * 10 +'px">';
+  for (var l=0; l<=20; l++) {
+    sep += '<div class="separator"></div>';
+  }
+  sep += '</div>';
+  $(sep).appendTo(prog);
+
   eps[id] = {
     "ep": ep,
     "prog": prog,
