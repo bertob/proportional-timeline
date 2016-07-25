@@ -13,12 +13,10 @@
 }
 body {
   margin: 0;
-  overflow: hidden;
-  height: 100vh;
   font-family: "Fira Sans", sans-serif;
   font-size: 18px;
   font-weight: 500;
-  background-color: #111;
+  background-color: #121314;
   color: #fff;
 }
 img {
@@ -52,46 +50,59 @@ button:active {
 }
 .adjacent {
   display: flex;
-  height: 80px;
+  height: 60px;
 }
 .episode {
-  margin: 1em;
+  margin: 0.5em;
   padding: 0.8em;
-  background-color: #444;
   border-radius: 4px;
 }
+.episode:hover {
+  background-color: rgba(234,245,255, 0.08);
+}
 .art {
-  width: 80px;
+  width: 60px;
 }
 .info {
   margin-left: 1em;
 }
 .info h4 {
-  margin: 0.8em 0 0.3em;
+  margin: 0.3em 0 0.1em;
 }
 .info small {
   margin: 0.3em 0 0.3em;
+  color: rgba(255,255,255, 0.7);
 }
 .progress {
-  margin: 1em 0;
+  margin: 1em 0 0;
+  opacity: 0.6;
 }
 .bar-row {
   position: relative;
   width: 100%;
   height: 4px;
-  margin: 10px 0;
+  margin: 7px 0;
 }
 .progress .bar {
   position: absolute;
   width: 100%;
   height: 4px;
-  background-color: #888;
+  background-color: rgba(255,255,255, 0.9);
+}
+.progress .bar-row:last-child {
+  margin-bottom: 0;
 }
 .progress .bar.active {
-  background-color: #ddd;
+  background-color: #40c3fe;
+}
+.scrubber-container, .scrubber {
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 .scrubber-container {
+  display: none;
   height: 4em;
+  background-image: url(img/arrows.svg);
 }
 .scrubber {
   display: block;
@@ -99,12 +110,21 @@ button:active {
   height: 4em;
   margin: 0 auto;
   border-radius: 4em;
-  background-color: #2396ff;
+  background-color: #40c3fe;
   background-image: url(img/pause.svg);
-  background-position: center center;
-  background-repeat: no-repeat;
   transition: all 0.12s ease-out;
 }
 .play {
   background-image: url(img/play.svg);
+}
+.episode.active {
+  background-color: #272b2d;
+  box-shadow: 0 3px 9px #000;
+}
+.episode.active .scrubber-container {
+  display: block;
+}
+.episode.active .progress {
+  margin-bottom: 1em;
+  opacity: 1;
 }
